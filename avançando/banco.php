@@ -23,9 +23,12 @@ $contasCorrentes['123.456.789-10'] = sacar($contasCorrentes['123.456.789-10'],50
 
 $contasCorrentes['123.456.789-11'] = sacar($contasCorrentes['123.456.789-11'], 200);
 
+unset($contasCorrentes['123.456.789-11']);
+
 titularComLetrasMaiusculas($contasCorrentes['123.256.789-12']);
 
-foreach ($contasCorrentes as $cpf => $conta) {
+foreach ($contasCorrentes as $cpf => $conta)
+{
     ['titular' => $titular, 'saldo' => $saldo] = $conta;
-    exibeMensagem("$cpf $titular  $saldo");
+    exibeMensagem("$cpf $titular $saldo");
 }
