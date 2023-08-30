@@ -1,4 +1,5 @@
 <?php
+// Your code here!
 
 function exibeMensagem($mensagem)
 {
@@ -8,7 +9,8 @@ function exibeMensagem($mensagem)
 function sacar(array $conta, float $valorASacar): array
 {
     if ($valorASacar > $conta['saldo']) {
-        exibeMensagem("Você não pode sacar este valor");
+        exibeMensagem("Você não pode sacar este valor.");
+        exibeMensagem("Motivo: Saldo insuficiente.");
     } else {
         $conta['saldo'] -= $valorASacar;
     }
@@ -20,6 +22,7 @@ function depositar(array $conta, float $valorADepositar): array
 {
     if ($valorADepositar > 0) {
         $conta['saldo'] += $valorADepositar;
+        exibeMensagem("Você depositou R$ "+ $valorADepositar);
     } else {
         exibeMensagem("Depósitos precisam ser positivos");
     }
@@ -37,3 +40,5 @@ function exibeConta(array $conta)
     ['titular' => $titular, 'saldo' => $saldo] = $conta;
     echo "<li>Titular: $titular. Saldo: $saldo</li>";
 }
+
+?>
